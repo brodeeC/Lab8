@@ -1,0 +1,26 @@
+
+//		A---B
+{
+  "Figure" :
+  {
+    "Description" : "Singular line, two points, one segment.",
+    "Points" :
+	  [
+	    {
+	      "name" : "A",
+		  "x" : 0,
+   	      "y" : 0
+		},
+	    {
+	      "name" : "B",
+		  "x" : 1,
+   	      "y" : 0
+		},
+	  ],
+  
+    "Segments" :
+      [
+	    {"A" : ["B"] }
+      ]
+  }
+}

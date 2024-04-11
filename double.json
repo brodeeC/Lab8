@@ -1,0 +1,70 @@
+//
+//
+//                           ____  
+//                          |   /
+//                      __ /   /   (Not drawn to scale)
+//						\	  /
+//						 \	 /
+//						  \	/				Made by Kyler Bailey
+//
+//
+//				A(3.599,7)
+//
+//						F(3,8)					
+//
+//
+//		B(-3,5)				E(6,3)
+//							
+//
+//		C(3,0)				D(6,10)
+//
+//
+//		An irregular polygon with 15 segments
+{
+    "Figure" :
+    {
+      "Description" : "Irregular pentagon in which each vertex is connected to each other.",
+      "Points" :
+        [
+          {
+            "name" : "A",
+            "x" : 3,
+               "y" : 7
+          },
+          {
+            "name" : "B",
+            "x" :	-3,
+               "y" : 5
+          },
+          {
+            "name" : "C",
+            "x" : 3,
+               "y" : 0
+          },
+          {
+            "name" : "D",
+            "x" : 6,
+            "y" : 10
+          },
+          {
+            "name" : "E",
+            "x" : 6,
+            "y" : 3
+          },
+          {
+            "name" : "F",
+            "x" : 3,
+            "y" : 8
+          }
+        ],
+    
+      "Segments" :
+        [
+          {"A" : ["B", "C", "D", "E", "F"] },
+          {"B" : ["C", "D", "E", "F"] },
+          {"C" : ["D", "E", "F"] },
+          {"D" : ["E","F"] },
+          {"E" : ["F"] }
+        ]
+    }
+  }
