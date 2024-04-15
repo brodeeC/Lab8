@@ -5,8 +5,8 @@
  *
  * <p>Bugs: (a list of bugs and / or other problems)
  *
- * @author <your name>
- * @date   <date of completion>
+ * @author Kyler, Brodee, & Collin
+ * @date   April 15, 2024
  */
 
 package geometry_objects.angle.comparators;
@@ -60,18 +60,18 @@ public class AngleStructureComparator implements Comparator<Angle>
 	@Override
 	public int compare(Angle left, Angle right)
 	{
-        if(left.compareTo(right) == 0){
-
+		if(left.compareTo(right) == 0){
+			return 0;
 		}
-
+      
 		if(left.compareTo(right) < 0){
-
+			return -1;
 		}
 
 		if(left.compareTo(right) > 0){
-
+			return 1;
 		}
 
-		return STRUCTURALLY_INCOMPARABLE; //TODO work on what to return.
+		return STRUCTURALLY_INCOMPARABLE; //Return this since we are handling the error.
 	}
 }
