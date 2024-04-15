@@ -16,7 +16,7 @@ import geometry_objects.angle.Angle;
 import geometry_objects.angle.AngleEquivalenceClasses;
 import geometry_objects.points.Point;
 import geometry_objects.points.PointDatabase;
-import input.components.FigureNode;
+import components.FigureNode;
 import input.InputFacade;
 
 class AngleIdentifierTest
@@ -27,7 +27,9 @@ class AngleIdentifierTest
 	
 	protected void init(String filename)
 	{
-		FigureNode fig = InputFacade.extractFigure("crossing_symmetric_triangle.json");
+		String figureStr = utilities.io.FileUtilities.readFileFilterComments(filename);
+
+		FigureNode fig = InputFacade.extractFigure(figureStr);
 
 		Map.Entry<PointDatabase, Set<Segment>> pair = InputFacade.toGeometryRepresentation(fig);
 

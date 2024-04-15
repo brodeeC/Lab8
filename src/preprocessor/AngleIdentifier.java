@@ -7,6 +7,7 @@ import exceptions.FactException;
 import geometry_objects.Segment;
 import geometry_objects.angle.Angle;
 import geometry_objects.angle.AngleEquivalenceClasses;
+import geometry_objects.angle.comparators.AngleStructureComparator;
 
 public class AngleIdentifier
 {
@@ -25,7 +26,7 @@ public class AngleIdentifier
 	{
 		if (_angles != null) return _angles;
 
-		_angles = new AngleEquivalenceClasses();
+		_angles = new AngleEquivalenceClasses(new AngleStructureComparator());
 
 		computeAngles();
 
