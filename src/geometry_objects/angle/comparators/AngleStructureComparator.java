@@ -60,6 +60,20 @@ public class AngleStructureComparator implements Comparator<Angle>
 	@Override
 	public int compare(Angle left, Angle right)
 	{
-        // TODO
+		if(left.compareTo(right)){
+
+		}
+
+        if(left.compareTo(right) == 0){
+
+		}
+
+		if(left.compareTo(right) < 0){
+
+		}
+
+		if(left.compareTo(right) > 0){
+
+		}
 	}
 }
