@@ -60,10 +60,6 @@ public class AngleStructureComparator implements Comparator<Angle>
 	@Override
 	public int compare(Angle left, Angle right)
 	{
-		if(left.compareTo(right)){
-
-		}
-
         if(left.compareTo(right) == 0){
 
 		}
@@ -75,5 +71,7 @@ public class AngleStructureComparator implements Comparator<Angle>
 		if(left.compareTo(right) > 0){
 
 		}
+
+		return STRUCTURALLY_INCOMPARABLE; //TODO work on what to return.
 	}
 }
