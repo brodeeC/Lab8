@@ -29,5 +29,15 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     public AngleLinkedEquivalenceClass(AngleStructureComparator _comparator) {
         super(_comparator);
     }
+
+    @Override
+    public boolean belongs(Angle angle){
+
+        if(angle != null && _comparator.compare(_canonical, angle) == -1) return true;
+		
+		return false;
+    }
+
+    
     
 }
