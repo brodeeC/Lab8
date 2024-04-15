@@ -1,7 +1,7 @@
 package geometry_objects.angle;
 
 import geometry_objects.angle.comparators.AngleStructureComparator;
-import utilities.eq_classes.LinkedEquivalenceClass;
+import utilities.LinkedEquivalenceClass.LinkedEquivalenceClass;
 
 /**
  * This implementation requires greater knowledge of the implementing Comparator.
@@ -25,5 +25,9 @@ import utilities.eq_classes.LinkedEquivalenceClass;
  */
 public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 {
-    // TODO
+
+    public AngleLinkedEquivalenceClass(AngleStructureComparator _comparator) {
+        super(_comparator);
+    }
+    
 }
