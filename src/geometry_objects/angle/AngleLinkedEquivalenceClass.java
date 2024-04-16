@@ -21,7 +21,7 @@ import utilities.LinkedEquivalenceClass.LinkedEquivalenceClass;
  *    We want the 'smallest' angle structurally to be the canonical element of an
  *    equivalence class.
  * 
- * @author XXX
+ * @author Brodee Clontz, Kyler Bailey, Collin Riddle
  */
 public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 {
@@ -38,6 +38,6 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		return false;
     }
 
-    
+
     
 }
