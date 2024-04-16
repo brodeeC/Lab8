@@ -1,5 +1,6 @@
 package preprocessor;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -35,8 +36,32 @@ public class TriangleIdentifier
 		return _triangles;
 	}
 
+	// Take three segments, smash them together, use isTriangle(). 
 	private void computeTriangles()
 	{
-		// TODO
+		try {
+		
+			List<Segment> list = new ArrayList<>();
+
+			for(int seg1 = 0; seg1 < _segments.size(); seg1++) {
+				Segment segment1 = _segments.get(seg1);
+				list.add(segment1);
+	
+				for(int seg2 = 1; seg2 < _segments.size(); seg2++) {
+					Segment segment2 = _segments.get(seg2);
+					list.add(segment2);
+	
+	
+					for (int seg3 = 2; seg3 < _segments.size(); seg3++) {
+						Segment segment3 = _segments.get(seg3);
+						list.add(segment3);
+	
+	
+						Triangle triangle = new Triangle(list);
+	
+					}
+				}
+			}
+		}  catch (FactException e) {}
 	}
 }
