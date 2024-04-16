@@ -36,29 +36,25 @@ public class TriangleIdentifier
 		return _triangles;
 	}
 
-	// Take three segments, smash them together, use isTriangle(). 
+	// Take three segments, smash them together, use isTriangle()?
 	private void computeTriangles()
 	{
 		try {
-		
+
 			List<Segment> list = new ArrayList<>();
 
 			for(int seg1 = 0; seg1 < _segments.size(); seg1++) {
-				Segment segment1 = _segments.get(seg1);
-				list.add(segment1);
+				list.add(_segments.get(seg1));
 	
 				for(int seg2 = 1; seg2 < _segments.size(); seg2++) {
-					Segment segment2 = _segments.get(seg2);
-					list.add(segment2);
-	
-	
+					list.add(_segments.get(seg2));
+
 					for (int seg3 = 2; seg3 < _segments.size(); seg3++) {
-						Segment segment3 = _segments.get(seg3);
-						list.add(segment3);
+						list.add(_segments.get(seg3));
 	
-	
+
 						Triangle triangle = new Triangle(list);
-	
+						_triangles.add(triangle);
 					}
 				}
 			}

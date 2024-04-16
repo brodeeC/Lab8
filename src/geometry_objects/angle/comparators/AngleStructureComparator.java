@@ -68,7 +68,13 @@ public class AngleStructureComparator implements Comparator<Angle>
 
 		//Gets the overlaying segments from the left ray 1 and left ray 2.
 		Segment OverlayR1 = right.overlayingRay(left.getRay1());
-		Segment OverlayR2 = right.overlayingRay(left.getRay2()); 
+		Segment OverlayR2 = right.overlayingRay(left.getRay2());
+		
+		Point ptR1 = OverlayR1.getPoint1();
+		Point ptR2 = OverlayR2.getPoint1();
+
+		Point ptR1_2 = OverlayR1.getPoint2();
+		Point ptR2_2 = OverlayR2.getPoint2();
 
 		//If the angles does not share the same vertex then it is struturally incomparable.
 		if (!left_vert.equals(right_vert)) {
@@ -80,9 +86,12 @@ public class AngleStructureComparator implements Comparator<Angle>
 			return STRUCTURALLY_INCOMPARABLE;
 		}
 		
-		if(left.compareTo(right) == 0){
-			return 0;
+		//If the lefts pt1 is a greater distance compared to rights pt1 and lefts pt2 is greater than rights pt2 as well return 1.
+
+		if(GeometryUtilities.distance(ptR1,ptR2) > 0){
+
 		}
+		
       
 		if(left.compareTo(right) < 0){
 			return -1;
