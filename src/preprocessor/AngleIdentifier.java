@@ -40,18 +40,6 @@ public class AngleIdentifier
 	 */
 	private void computeAngles() 
 	{
-		// for(int seg1 = 0; seg1 < _segments.size(); seg1++){
-		// 	Segment segment1 = _segments.get(seg1);
-
-		// 	for(int seg2 = 1; seg2 < _segments.size(); seg2++){
-		// 		Segment segment2 = _segments.get(seg2);
-
-		// 		Angle angle = new Angle(segment1,segment2);
-
-		// 		if (angle != null) _angles.add(angle);
-		// 	}
-		// }
-
 		for(Segment seg1 : _segments.keySet()){
 
 			for (Segment seg2 : _segments.values()){
