@@ -37,7 +37,5 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 		
 		return false;
     }
-
-
     
 }
