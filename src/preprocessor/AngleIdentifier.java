@@ -1,6 +1,9 @@
 package preprocessor;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 
 import exceptions.FactException;
 import geometry_objects.Segment;
@@ -38,20 +41,44 @@ public class AngleIdentifier
 	 */
 	private void computeAngles() 
 	{
-		for(Segment seg1 : _segments.keySet()){
+		// for(Segment seg1 : _segments.keySet()){
 
-			for (Segment seg2 : _segments.values()){
+		// 	for (Segment seg2 : _segments.values()){
+		// 		Angle angle;
+
+		// 		try {
+		// 			angle = new Angle(seg1, seg2);
+		// 		} 
+
+		// 		catch (FactException e) {
+		// 			angle = null;
+		// 		}
+
+		// 		if (angle != null) _angles.add(angle);
+		// 	}
+		// }
+
+
+		ArrayList<Segment> keys = new ArrayList<Segment>(_segments.keySet());
+		ArrayList<Segment> vals = new ArrayList<Segment>(_segments.values());
+
+		for (int seg1 = 0; seg1 < keys.size(); seg1++){
+			Segment segment1 = keys.get(seg1);
+
+			for (int seg2 = seg1+1; seg2 < vals.size(); seg2++){
+				Segment segment2 = vals.get(seg2);
+
 				Angle angle;
+				try{
+					angle = new Angle(segment1, segment2);
+				}
 
-				try {
-					angle = new Angle(seg1, seg2);
-				} 
-
-				catch (FactException e) {
+				catch (FactException e){
 					angle = null;
 				}
 
 				if (angle != null) _angles.add(angle);
+
 			}
 		}
 	}
