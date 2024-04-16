@@ -54,7 +54,5 @@ public class AngleIdentifier
 				if (angle != null) _angles.add(angle);
 			}
 		}
-
-		
 	}
 }
