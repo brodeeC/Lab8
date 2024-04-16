@@ -33,7 +33,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     @Override
     public boolean belongs(Angle angle){
 
-        if(angle != null && super._comparator.compare(_canonical, angle) == -1) return true;
+        if(angle != null && super._comparator.compare(_canonical, angle) != Integer.MAX_VALUE) return true;
 		
 		return false;
     }
