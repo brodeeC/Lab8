@@ -66,6 +66,13 @@ public class AngleStructureComparator implements Comparator<Angle>
 		Point left_vert = left.getVertex();
 		Point right_vert = right.getVertex();
 
+		Segment left_seg1 = left.getRay1();
+		Segment right_seg1 = right.getRay1();
+
+		Segment left_seg2 = left.getRay2();
+		Segment right_seg2 = right.getRay2(); //Going to take the the segment of each line and compare to.
+		                                      //Purpose of this is to compare each given segment, practically make is a "size."
+
 		if (!left.overlays(right) || !left_vert.equals(right_vert)) {
 			return STRUCTURALLY_INCOMPARABLE;
 		}
