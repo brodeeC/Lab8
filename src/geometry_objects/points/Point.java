@@ -119,4 +119,11 @@ public class Point implements Comparable<Point>
 		return MathUtilities.doubleEquals(this._x, other._x) && 
 				MathUtilities.doubleEquals(this._y, other._y);
 	}
+
+	public static double distance (Point a, Point b){
+		double xSq = Math.pow((b.getX() - a.getX()), 2);
+		double ySq = Math.pow((b.getY() - a.getY()), 2);
+
+		return Math.sqrt(xSq + ySq);
+	}
 }
