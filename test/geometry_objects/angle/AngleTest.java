@@ -28,7 +28,6 @@ public class AngleTest {
         
         Angle a1 = new Angle(s1, s2);
         Angle a2 = new Angle(s3, s4);
-
         assertTrue(a1.equals(a2));
 
 
@@ -46,8 +45,8 @@ public class AngleTest {
 
         a1 = new Angle(s1, s2);
         a2 = new Angle(s3, s4);
-
         assertTrue(a1.equals(a2));
+
 
 
         p1 = new Point(0, 0);
@@ -55,23 +54,29 @@ public class AngleTest {
         p3 = new Point(2, 2);
         p4 = new Point(3, 1);
         p5 = new Point(4, 0);
+        Point p6 = new Point (10, 9);
 
         s1 = new Segment(p1, p3);
         s2 = new Segment(p3, p5);
         s3 = new Segment(p2, p3);
         s4 = new Segment(p3, p4);
+        Segment s5 = new Segment(p1, p6);
 
         a1 = new Angle(s1, s2);
         a2 = new Angle(s4, s3);
-
         assertTrue(a1.equals(a2));
 
+        a1 = new Angle(s1, s5);
+        a2 = new Angle(s2, s3);
+        assertFalse(a1.equals(a2));
 
-        p1 = new Point(0, 1);
+
+
+        p1 = new Point(0, 0);
         p2 = new Point(1, 1);
         p3 = new Point(2, 2);
-        p4 = new Point(4, 1);
-        p5 = new Point(4, 1);
+        p4 = new Point(3, 1);
+        p5 = new Point(6, 1);
 
         s1 = new Segment(p1, p3);
         s2 = new Segment(p3, p5);
@@ -80,7 +85,6 @@ public class AngleTest {
 
         a1 = new Angle(s1, s2);
         a2 = new Angle(s3, s4);
-
         assertFalse(a1.equals(a2));
     }
 }
