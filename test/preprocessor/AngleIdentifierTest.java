@@ -196,4 +196,15 @@ class AngleIdentifierTest
 			assertTrue(computedAngles.contains(expected));
 		}
 	}
+
+	@Test
+	void test_many_triangles(){
+
+		init("many_triangles.json");
+
+		AngleIdentifier angleIdentifier = new AngleIdentifier(_segments);
+
+		AngleEquivalenceClasses computedAngles = angleIdentifier.getAngles();
+
+	}
 }
