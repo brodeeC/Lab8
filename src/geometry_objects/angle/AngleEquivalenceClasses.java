@@ -28,6 +28,10 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 	protected AngleStructureComparator _comparator;
 	protected List<AngleLinkedEquivalenceClass> _classes;
 
+	public AngleEquivalenceClasses(){
+		this(new AngleStructureComparator());
+	}
+
 	public AngleEquivalenceClasses(AngleStructureComparator comp) {
 		super(comp);
 		_comparator = comp;
