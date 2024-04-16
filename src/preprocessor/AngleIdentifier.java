@@ -1,9 +1,13 @@
+/**
+ * @author Brodee Clontz, Kyler Bailey, Collin Riddle
+ * @date 04/16/24
+ * 
+ * Creates an Equivalence Class of Angles. 
+ */
 package preprocessor;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.Queue;
 
 import exceptions.FactException;
 import geometry_objects.Segment;
@@ -41,42 +45,29 @@ public class AngleIdentifier
 	 */
 	private void computeAngles() 
 	{
-		// for(Segment seg1 : _segments.keySet()){
-
-		// 	for (Segment seg2 : _segments.values()){
-		// 		Angle angle;
-
-		// 		try {
-		// 			angle = new Angle(seg1, seg2);
-		// 		} 
-
-		// 		catch (FactException e) {
-		// 			angle = null;
-		// 		}
-
-		// 		if (angle != null) _angles.add(angle);
-		// 	}
-		// }
-
-
+		//List to iterate through the segments
 		ArrayList<Segment> keys = new ArrayList<Segment>(_segments.keySet());
-		ArrayList<Segment> vals = new ArrayList<Segment>(_segments.values());
 
+		//Loop to get first segment
 		for (int seg1 = 0; seg1 < keys.size(); seg1++){
 			Segment segment1 = keys.get(seg1);
 
-			for (int seg2 = seg1+1; seg2 < vals.size(); seg2++){
-				Segment segment2 = vals.get(seg2);
+			//Loop to get second segment
+			for (int seg2 = seg1+1; seg2 < keys.size(); seg2++){
+				Segment segment2 = keys.get(seg2);
 
 				Angle angle;
 				try{
+					//Create the angle
 					angle = new Angle(segment1, segment2);
 				}
 
 				catch (FactException e){
+					//If an exception is thrown set angle to null
 					angle = null;
 				}
 
+				//Add angle too the Angle Equivalence Class if it was created
 				if (angle != null) _angles.add(angle);
 
 			}
