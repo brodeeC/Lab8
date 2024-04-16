@@ -57,14 +57,21 @@ public class AngleStructureComparator implements Comparator<Angle>
 	 *              -1 for less than
 	 *              1 for greater than
 	 */
-	/**
-	 * Figure out a way to utilize geometry utilites.
-	 */
 	@Override
 	public int compare(Angle left, Angle right)
 	{
 		Point left_vert = left.getVertex();
 		Point right_vert = right.getVertex();
+
+		//If the angles does not share the same vertex then it is struturally incomparable.
+		if (!left_vert.equals(right_vert)) {
+			return STRUCTURALLY_INCOMPARABLE;
+		}
+
+		//If the left does not overlay with the right then it is structurally incomparable.
+		if(!left.overlays(right)){
+			return STRUCTURALLY_INCOMPARABLE;
+		}
 
 		//Gets the overlaying segments from the left ray 1 and left ray 2.
 		Segment OverlayR1 = right.overlayingRay(left.getRay1());
@@ -76,27 +83,16 @@ public class AngleStructureComparator implements Comparator<Angle>
 		Point ptR1_2 = OverlayR1.getPoint2();
 		Point ptR2_2 = OverlayR2.getPoint2();
 
-		//If the angles does not share the same vertex then it is struturally incomparable.
-		if (!left_vert.equals(right_vert)) {
-			return STRUCTURALLY_INCOMPARABLE;
-		}
-
-		//If the left does not overlay with the right then it is structurally incomparable.
-		if(!left.overlays(right)){
-			return STRUCTURALLY_INCOMPARABLE;
-		}
 		
 		//If the lefts pt1 is a greater distance compared to rights pt1 and lefts pt2 is greater than rights pt2 as well return 1.
 
 		//Grabbing the distance from overlays right left ray 1 and left ray 2.
 		if(GeometryUtilities.distance(ptR1,left_vert) >= GeometryUtilities.distance(ptR1_2, left_vert)){
 			return 1;
-
 		}
       
 		if(GeometryUtilities.distance(ptR1,left_vert) < GeometryUtilities.distance(ptR1_2, left_vert)){
 			return -1;
-
 		}
 
 		return 0; //Return 0 to handle an inclusive case.
