@@ -7,7 +7,6 @@ import exceptions.FactException;
 import geometry_objects.Segment;
 import geometry_objects.angle.Angle;
 import geometry_objects.angle.AngleEquivalenceClasses;
-import geometry_objects.angle.comparators.AngleStructureComparator;
 
 public class AngleIdentifier
 {
@@ -26,7 +25,7 @@ public class AngleIdentifier
 	{
 		if (_angles != null) return _angles;
 
-		_angles = new AngleEquivalenceClasses(new AngleStructureComparator());
+		_angles = new AngleEquivalenceClasses();
 
 		computeAngles();
 
@@ -40,6 +39,16 @@ public class AngleIdentifier
 	 */
 	private void computeAngles()
 	{
+		for(int seg1 = 0; seg1 < _segments.size(); seg1++){
+			Segment segment1 = _segments.get(seg1);
+
+			for(int seg2 = 1; seg2 < _segments.size(); seg2++){
+				Segment segment2 = _segments.get(seg2);
+
+				Angle angle = Angle.Angle(segment1,segment2);
+			}
+		}
+
 		
 	}
 }
