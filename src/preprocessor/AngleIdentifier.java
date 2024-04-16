@@ -33,8 +33,13 @@ public class AngleIdentifier
 		return _angles;
 	}
 
+	/**
+	 * May need some sort of Math.Utilies to calculate the angle.
+	 * Will definitely have to utilize the segment map. Maybe iterate through the list of segments calculating
+	 * the angle and appending the calculated angle to the angle equivalnce class.
+	 */
 	private void computeAngles()
 	{
-		// TODO
+		
 	}
 }
