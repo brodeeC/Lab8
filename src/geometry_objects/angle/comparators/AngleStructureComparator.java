@@ -57,9 +57,19 @@ public class AngleStructureComparator implements Comparator<Angle>
 	 *              -1 for less than
 	 *              1 for greater than
 	 */
+	/**
+	 * Check to see first if the angles share the same vertices and have somewhat a similar ray 
+	 */
 	@Override
 	public int compare(Angle left, Angle right)
 	{
+		Point left_vert = left.getVertex();
+		Point right_vert = right.getVertex();
+
+		if (!left.overlays(right) || !left_vert.equals(right_vert)) {
+			return STRUCTURALLY_INCOMPARABLE;
+		}
+
 		if(left.compareTo(right) == 0){
 			return 0;
 		}
