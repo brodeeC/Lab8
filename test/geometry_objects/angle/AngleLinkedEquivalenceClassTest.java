@@ -1,5 +1,6 @@
 package geometry_objects.angle;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -47,11 +48,14 @@ public class AngleLinkedEquivalenceClassTest {
             lec.add(angle2);
             lec.add(angle3);
             lec.add(angle4);
+
             lec.add(angle5);
 
             assertFalse(lec.contains(angle5));
             
             assertTrue(lec.canonical().equals(angle1));
+
+            assertEquals(lec.size(), 4);
 
 
         } catch (FactException e) {
@@ -59,5 +63,4 @@ public class AngleLinkedEquivalenceClassTest {
             e.printStackTrace();
         }
     }
-    
 }
