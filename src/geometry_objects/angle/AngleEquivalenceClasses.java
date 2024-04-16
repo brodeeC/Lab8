@@ -31,7 +31,6 @@ public class AngleEquivalenceClasses extends EquivalenceClasses<Angle>
 {
 	//Default constructor
 	public AngleEquivalenceClasses(){
-		//this(new AngleStructureComparator());
 		super(new AngleStructureComparator());
 	}
 	
