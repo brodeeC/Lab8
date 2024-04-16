@@ -1,8 +1,6 @@
 package preprocessor;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import exceptions.FactException;
 import geometry_objects.Segment;
