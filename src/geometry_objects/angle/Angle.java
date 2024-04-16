@@ -186,6 +186,10 @@ public class Angle implements Comparable<Angle>
 
 		_vertex.equals(newAngle._vertex) &&
 		Segment.overlaysAsRay(_ray1, newAngle._ray1) &&
-		Segment.overlaysAsRay(_ray2, newAngle._ray2);		
+		Segment.overlaysAsRay(_ray2, newAngle._ray2) ||
+
+		_vertex.equals(newAngle._vertex) &&
+		Segment.overlaysAsRay(_ray1, newAngle._ray2) &&
+		Segment.overlaysAsRay(_ray2, newAngle._ray1);		
 	}
 }
