@@ -206,5 +206,90 @@ class AngleIdentifierTest
 
 		AngleEquivalenceClasses computedAngles = angleIdentifier.getAngles();
 
+		assertEquals("Number of Angle Equivalence classes", 44, computedAngles.numClasses());
+
+		//System.out.println(computedAngles.toString());
+
+		for (Segment seg : _pp._allMinimalSegments){
+			
+			System.out.print(seg.getPoint1().getName() + " : ");
+			System.out.println(seg.getPoint2().getName());
+			
+		}
+
+
+
+		//Original segments from figure
+		Segment ab = new Segment(_points.getPoint("A"), _points.getPoint("B"));
+		Segment ac = new Segment(_points.getPoint("A"), _points.getPoint("C"));
+		Segment af = new Segment(_points.getPoint("A"), _points.getPoint("F"));
+		Segment ad = new Segment(_points.getPoint("A"), _points.getPoint("D"));
+
+		Segment bc = new Segment(_points.getPoint("B"), _points.getPoint("C"));
+		Segment ba = new Segment(_points.getPoint("B"), _points.getPoint("A"));
+		Segment bf = new Segment(_points.getPoint("B"), _points.getPoint("F"));
+		Segment be = new Segment(_points.getPoint("B"), _points.getPoint("E"));
+
+		Segment ca = new Segment(_points.getPoint("C"), _points.getPoint("A"));
+		Segment cb = new Segment(_points.getPoint("C"), _points.getPoint("B"));
+		Segment cf = new Segment(_points.getPoint("C"), _points.getPoint("F"));
+		Segment cd = new Segment(_points.getPoint("C"), _points.getPoint("D"));
+		Segment ce = new Segment(_points.getPoint("C"), _points.getPoint("E"));
+
+		Segment de = new Segment(_points.getPoint("D"), _points.getPoint("E"));
+		Segment df = new Segment(_points.getPoint("D"), _points.getPoint("F"));
+		Segment dc = new Segment(_points.getPoint("D"), _points.getPoint("C"));
+		Segment da = new Segment(_points.getPoint("D"), _points.getPoint("A"));
+
+		Segment ef = new Segment(_points.getPoint("E"), _points.getPoint("F"));
+		Segment ed = new Segment(_points.getPoint("E"), _points.getPoint("D"));
+		Segment ec = new Segment(_points.getPoint("E"), _points.getPoint("C"));
+		Segment eb = new Segment(_points.getPoint("E"), _points.getPoint("B"));
+
+		Segment fe = new Segment(_points.getPoint("F"), _points.getPoint("E"));
+		Segment fd = new Segment(_points.getPoint("F"), _points.getPoint("D"));
+		Segment fc = new Segment(_points.getPoint("F"), _points.getPoint("C"));
+		Segment fb = new Segment(_points.getPoint("F"), _points.getPoint("B"));
+		Segment fa = new Segment(_points.getPoint("F"), _points.getPoint("A"));
+	
+
+		//
+		// Implied minimal segments: 4 in this figure.
+		//
+		Point aStar = new Point(1.5, 0.0);
+		Point bStar = new Point(-1.5, 0.0);
+
+		//
+		// Non-minimal, computed segments: 2 in this figure.
+		//
+		
+
+		//
+		// Angles we expect to find
+		//
+		List<Angle> expectedAngles = new ArrayList<Angle>();
+		//try {
+			//
+			//
+			// Angles broken down by equivalence class
+			//
+			//
+
+			// Straight angles
+			//
+						
+		//}
+		//catch (FactException te) { System.err.println("Invalid Angles in Angle test."); }		
+		
+		//assertEquals(expectedAngles.size(), computedAngles.size());
+		
+		//
+		// Equality
+		//
+		// for (Angle expected : expectedAngles)
+		// {
+		// 	assertTrue(computedAngles.contains(expected));
+		// }
+
 	}
 }
