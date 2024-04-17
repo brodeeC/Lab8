@@ -25,14 +25,21 @@ import utilities.LinkedEquivalenceClass.LinkedEquivalenceClass;
  */
 public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
 {
-
+    /**
+     * Constructor
+     * @param _comparator
+     */
     public AngleLinkedEquivalenceClass(AngleStructureComparator _comparator) {
         super(_comparator);
     }
 
+    /**
+     * true if the angle belongs in this equivalence class
+     */
     @Override
     public boolean belongs(Angle angle){
 
+        //If the comparator returns the Max Int value then the two angles are structurally incomparable.
         if(angle != null && super._comparator.compare(_canonical, angle) != Integer.MAX_VALUE) return true;
 		
 		return false;
