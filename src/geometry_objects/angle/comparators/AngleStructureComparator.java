@@ -87,7 +87,7 @@ public class AngleStructureComparator implements Comparator<Angle>
 		//If the lefts pt1 is a greater distance compared to rights pt1 and lefts pt2 is greater than rights pt2 as well return 1.
 
 		//Grabbing the distance from overlays right left ray 1 and left ray 2.
-		if(GeometryUtilities.between(ptR1,left_vert,ptR1_2) >= GeometryUtilities.between(ptR2, right_vert,ptR2_2)){ //TODO Alvin did this, see what is wrong with it.
+		if(GeometryUtilities.between(ptR1,left_vert,ptR1_2) == GeometryUtilities.between(ptR2, right_vert,ptR2_2)){ //TODO Alvin did this, see what is wrong with it.
 			return 1;
 		}
       

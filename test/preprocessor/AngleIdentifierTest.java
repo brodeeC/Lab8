@@ -209,19 +209,6 @@ class AngleIdentifierTest
 
 		assertEquals("Number of Angle Equivalence classes", 44, computedAngles.numClasses());
 
-		//System.out.println(computedAngles.toString());
-
-		// for (Segment seg : computedAngles){
-			
-		// 	System.out.print(seg.getPoint1().getName() + " : ");
-		// 	System.out.println(seg.getPoint2().getName());
-			
-		// }
-
-		System.out.println();
-
-
-
 		//Original segments from figure - 11 here
 		Segment ac = new Segment(_points.getPoint("A"), _points.getPoint("C"));
 		Segment ad = new Segment(_points.getPoint("A"), _points.getPoint("D"));
@@ -261,7 +248,7 @@ class AngleIdentifierTest
 		Segment fc = new Segment(_points.getPoint("F"), _points.getPoint("C"));
 		Segment ab = new Segment(_points.getPoint("A"), _points.getPoint("B"));
 		Segment ce = new Segment(_points.getPoint("C"), _points.getPoint("E"));
-		Segment da = new Segment(_points.getPoint("D"), _points.getPoint("C"));
+		Segment da = new Segment(_points.getPoint("D"), _points.getPoint("A"));
 
 		//
 		// Non-minimal, computed segments: 2 in this figure.
@@ -277,23 +264,102 @@ class AngleIdentifierTest
 		// Angles we expect to find
 		//
 		List<Angle> expectedAngles = new ArrayList<Angle>();
-		// try {
+		try {
 
-		// 	expectedAngles.add(new Angle)
-			
-						
-		// }
-		// catch (FactException te) { System.err.println("Invalid Angles in Angle test."); }		
-		
-		// assertEquals(expectedAngles.size(), computedAngles.size());
+			expectedAngles.add(new Angle(be, de));
+			expectedAngles.add(new Angle(ad, de));
+			expectedAngles.add(new Angle(ad, dc));
+			expectedAngles.add(new Angle(da, ab));
+			expectedAngles.add(new Angle(da, fa));
+			expectedAngles.add(new Angle(da, abStar));
+			expectedAngles.add(new Angle(da, ac));
+			expectedAngles.add(new Angle(ad, dbStar));
+			expectedAngles.add(new Angle(ad, df));
+			expectedAngles.add(new Angle(be, ec));
+			expectedAngles.add(new Angle(be, ec));
+			expectedAngles.add(new Angle(be, ab));
+			expectedAngles.add(new Angle(be, ef));
+			expectedAngles.add(new Angle(be, aStare));
+			expectedAngles.add(new Angle(be, bc));
+			expectedAngles.add(new Angle(faStar, bStarf));
+			expectedAngles.add(new Angle(faStar, fd));
+			expectedAngles.add(new Angle(bStarf, fe));
+			expectedAngles.add(new Angle(ef, fd));
+			expectedAngles.add(new Angle(faStar, caStar));
+			expectedAngles.add(new Angle(faStar, aStare));
+			expectedAngles.add(new Angle(faStar, aStarb));
+			expectedAngles.add(new Angle(faStar, fc));
+			expectedAngles.add(new Angle(cf, fe));
+			expectedAngles.add(new Angle(faStar, fb));
+			expectedAngles.add(new Angle(fb, fe));
+			expectedAngles.add(new Angle(faStar, fa));
+			expectedAngles.add(new Angle(fa, fe));
+			expectedAngles.add(new Angle(bStarc, bStarf));
+			expectedAngles.add(new Angle(bStarc, caStar));
+			expectedAngles.add(new Angle(bStarc, cb));
+			expectedAngles.add(new Angle(caStar, ca));
+			expectedAngles.add(new Angle(ac, cb));
+			expectedAngles.add(new Angle(caStar, faStar));
+			expectedAngles.add(new Angle(bStarc, dbStar));
+			expectedAngles.add(new Angle(bStarc, cf));
+			expectedAngles.add(new Angle(fc, ca));
+			expectedAngles.add(new Angle(bStarc, ce));
+			expectedAngles.add(new Angle(ec, ca));
+			expectedAngles.add(new Angle(bStarc, dc));
+			expectedAngles.add(new Angle(dc, ca));
+			expectedAngles.add(new Angle(bStarf, abStar));
+			expectedAngles.add(new Angle(bStarf, dbStar));
+			expectedAngles.add(new Angle(bStarf, fc));
+			expectedAngles.add(new Angle(cf, fd));
+			expectedAngles.add(new Angle(bStarf, fb));
+			expectedAngles.add(new Angle(fb, fd));
+			expectedAngles.add(new Angle(bStarf, fa));
+			expectedAngles.add(new Angle(fa, fd));
+			expectedAngles.add(new Angle(caStar, aStare));
+			expectedAngles.add(new Angle(caStar, aStarb));
+			expectedAngles.add(new Angle(caStar, cf));
+			expectedAngles.add(new Angle(fc, cb));
+			expectedAngles.add(new Angle(caStar, ce));
+			expectedAngles.add(new Angle(ec, cb));
+			expectedAngles.add(new Angle(caStar, dc));
+			expectedAngles.add(new Angle(dc, cb));
+			expectedAngles.add(new Angle(de, aStare));
+			expectedAngles.add(new Angle(de, ef));
+			expectedAngles.add(new Angle(aStare, ec));
+			expectedAngles.add(new Angle(ce, ef));
+			expectedAngles.add(new Angle(de, dbStar));
+			expectedAngles.add(new Angle(de, df));
+			expectedAngles.add(new Angle(dbStar, dc));
+			expectedAngles.add(new Angle(dc, df));
+			expectedAngles.add(new Angle(ab, abStar));
+			expectedAngles.add(new Angle(ab, ac));
+			expectedAngles.add(new Angle(abStar, fa));
+			expectedAngles.add(new Angle(fa, ac));
+			expectedAngles.add(new Angle(ab, aStarb));
+			expectedAngles.add(new Angle(ab, bc));
+			expectedAngles.add(new Angle(aStarb, fb));
+			expectedAngles.add(new Angle(fb, bc));
+			expectedAngles.add(new Angle(aStare, aStarb));
+			expectedAngles.add(new Angle(abStar, dbStar));
+			expectedAngles.add(new Angle(fc, ce));
+			expectedAngles.add(new Angle(fc, dc));
+			expectedAngles.add(new Angle(cf, fb));
+			expectedAngles.add(new Angle(cf, fa));
+			expectedAngles.add(new Angle(ec, dc));
+			expectedAngles.add(new Angle(fb, fa));	
+			expectedAngles.add(new Angle(be, fb));
+		}
+		catch (FactException te) { System.err.println("Invalid Angles in Angle test."); System.out.println(te.getMessage()); }		
+
+		assertEquals(expectedAngles.size(), computedAngles.size());
 		
 		
 		// //Equality
 		
-		// for (Angle expected : expectedAngles)
-		// {
-		// 	assertTrue(computedAngles.contains(expected));
-		// }
+		for (Angle expected : expectedAngles)
+		{
+			assertTrue(computedAngles.contains(expected));
+		}
 
 	}
 }
