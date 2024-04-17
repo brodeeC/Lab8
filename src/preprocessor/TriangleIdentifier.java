@@ -39,25 +39,28 @@ public class TriangleIdentifier
 	// Take three segments, smash them together, use isTriangle()?
 	private void computeTriangles()
 	{
-		try {
 
-			List<Segment> list = new ArrayList<>();
+		List<Segment> list = new ArrayList<Segment>(_segments.keySet());
+		List<Segment> list2 = new ArrayList<Segment>();
 
-			for(int seg1 = 0; seg1 < _segments.size(); seg1++) {
-				list.add(_segments.get(seg1));
+		for(int seg1 = 0; seg1 < list.size(); seg1++) {
+			list2.add(list.get(seg1));
 	
-				for(int seg2 = 1; seg2 < _segments.size(); seg2++) {
-					list.add(_segments.get(seg2));
+			for(int seg2 = seg1 + 1; seg2 < list.size(); seg2++) {
+				list2.add(list.get(seg2));
 
-					for (int seg3 = 2; seg3 < _segments.size(); seg3++) {
-						list.add(_segments.get(seg3));
+				for (int seg3 = seg1 + 2; seg3 < list.size(); seg3++) {
+					list2.add(list.get(seg3));
 	
+					try {
 
-						Triangle triangle = new Triangle(list);
+						Triangle triangle = new Triangle(list2);
+
 						_triangles.add(triangle);
-					}
+
+					}  catch (FactException e) { }		
 				}
 			}
-		}  catch (FactException e) {}
+		}
 	}
 }
