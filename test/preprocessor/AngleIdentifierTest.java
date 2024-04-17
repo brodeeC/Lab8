@@ -24,6 +24,7 @@ class AngleIdentifierTest
 	protected PointDatabase _points;
 	protected Preprocessor _pp;
 	protected Map<Segment, Segment> _segments;
+	Map.Entry<PointDatabase, Set<Segment>> pair;
 	
 	protected void init(String filename)
 	{
@@ -31,7 +32,7 @@ class AngleIdentifierTest
 
 		FigureNode fig = InputFacade.extractFigure(figureStr);
 
-		Map.Entry<PointDatabase, Set<Segment>> pair = InputFacade.toGeometryRepresentation(fig);
+		pair = InputFacade.toGeometryRepresentation(fig);
 
 		_points = pair.getKey();
 
@@ -210,82 +211,85 @@ class AngleIdentifierTest
 
 		//System.out.println(computedAngles.toString());
 
-		for (Segment seg : _pp._allMinimalSegments){
+		// for (Segment seg : computedAngles){
 			
-			System.out.print(seg.getPoint1().getName() + " : ");
-			System.out.println(seg.getPoint2().getName());
+		// 	System.out.print(seg.getPoint1().getName() + " : ");
+		// 	System.out.println(seg.getPoint2().getName());
 			
-		}
+		// }
+
+		System.out.println();
 
 
 
-		//Original segments from figure
-		Segment ab = new Segment(_points.getPoint("A"), _points.getPoint("B"));
+		//Original segments from figure - 11 here
 		Segment ac = new Segment(_points.getPoint("A"), _points.getPoint("C"));
-		Segment af = new Segment(_points.getPoint("A"), _points.getPoint("F"));
 		Segment ad = new Segment(_points.getPoint("A"), _points.getPoint("D"));
 
 		Segment bc = new Segment(_points.getPoint("B"), _points.getPoint("C"));
-		Segment ba = new Segment(_points.getPoint("B"), _points.getPoint("A"));
-		Segment bf = new Segment(_points.getPoint("B"), _points.getPoint("F"));
 		Segment be = new Segment(_points.getPoint("B"), _points.getPoint("E"));
 
-		Segment ca = new Segment(_points.getPoint("C"), _points.getPoint("A"));
-		Segment cb = new Segment(_points.getPoint("C"), _points.getPoint("B"));
 		Segment cf = new Segment(_points.getPoint("C"), _points.getPoint("F"));
-		Segment cd = new Segment(_points.getPoint("C"), _points.getPoint("D"));
-		Segment ce = new Segment(_points.getPoint("C"), _points.getPoint("E"));
 
-		Segment de = new Segment(_points.getPoint("D"), _points.getPoint("E"));
 		Segment df = new Segment(_points.getPoint("D"), _points.getPoint("F"));
 		Segment dc = new Segment(_points.getPoint("D"), _points.getPoint("C"));
-		Segment da = new Segment(_points.getPoint("D"), _points.getPoint("A"));
 
 		Segment ef = new Segment(_points.getPoint("E"), _points.getPoint("F"));
-		Segment ed = new Segment(_points.getPoint("E"), _points.getPoint("D"));
 		Segment ec = new Segment(_points.getPoint("E"), _points.getPoint("C"));
-		Segment eb = new Segment(_points.getPoint("E"), _points.getPoint("B"));
 
-		Segment fe = new Segment(_points.getPoint("F"), _points.getPoint("E"));
-		Segment fd = new Segment(_points.getPoint("F"), _points.getPoint("D"));
-		Segment fc = new Segment(_points.getPoint("F"), _points.getPoint("C"));
 		Segment fb = new Segment(_points.getPoint("F"), _points.getPoint("B"));
 		Segment fa = new Segment(_points.getPoint("F"), _points.getPoint("A"));
 	
 
 		//
-		// Implied minimal segments: 4 in this figure.
+		// Implied minimal segments: 8 in this figure.
 		//
-		Point aStar = new Point(1.5, 0.0);
-		Point bStar = new Point(-1.5, 0.0);
+		Point aStar = _points.getPoint(1.5, 0.0);
+		Point bStar = _points.getPoint(-1.5, 0.0);
+
+		Segment caStar = new Segment(_points.getPoint("C"), aStar);
+		Segment bStarc = new Segment(bStar, _points.getPoint("C"));
+		Segment bStarf = new Segment(bStar, _points.getPoint("F"));
+
+		Segment faStar = new Segment(_points.getPoint("F"), aStar);
+		Segment aStarb = new Segment(aStar, _points.getPoint("B"));
+		Segment abStar = new Segment(_points.getPoint("A"), bStar);
+
+		Segment dbStar = new Segment(_points.getPoint("D"), bStar);
+		Segment aStare = new Segment(aStar, _points.getPoint("E"));
+
+		Segment fc = new Segment(_points.getPoint("F"), _points.getPoint("C"));
+		Segment ab = new Segment(_points.getPoint("A"), _points.getPoint("B"));
+		Segment ce = new Segment(_points.getPoint("C"), _points.getPoint("E"));
+		Segment da = new Segment(_points.getPoint("D"), _points.getPoint("C"));
 
 		//
 		// Non-minimal, computed segments: 2 in this figure.
 		//
+		Segment de = new Segment(_points.getPoint("D"), _points.getPoint("E"));
+		Segment fd = new Segment(_points.getPoint("F"), _points.getPoint("D"));
+		Segment cb = new Segment(_points.getPoint("C"), _points.getPoint("B"));
+		Segment ca = new Segment(_points.getPoint("C"), _points.getPoint("A"));
+		Segment fe = new Segment(_points.getPoint("F"), _points.getPoint("E"));
 		
 
 		//
 		// Angles we expect to find
 		//
 		List<Angle> expectedAngles = new ArrayList<Angle>();
-		//try {
-			//
-			//
-			// Angles broken down by equivalence class
-			//
-			//
+		// try {
 
-			// Straight angles
-			//
+		// 	expectedAngles.add(new Angle)
+			
 						
-		//}
-		//catch (FactException te) { System.err.println("Invalid Angles in Angle test."); }		
+		// }
+		// catch (FactException te) { System.err.println("Invalid Angles in Angle test."); }		
 		
-		//assertEquals(expectedAngles.size(), computedAngles.size());
+		// assertEquals(expectedAngles.size(), computedAngles.size());
 		
-		//
-		// Equality
-		//
+		
+		// //Equality
+		
 		// for (Angle expected : expectedAngles)
 		// {
 		// 	assertTrue(computedAngles.contains(expected));

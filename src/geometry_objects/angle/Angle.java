@@ -167,7 +167,7 @@ public class Angle implements Comparable<Angle>
 		return "Angle( m" + _ray1Endpoint.getName() +
 				            _vertex.getName() +
 				            _ray2Endpoint.getName() +
-				            " = " + String.format("%1$.3f", _measure) + ")";
+				            " = " + String.format("%1$.3f", _measure) + ")\n";
 	}
 
 	@Override
