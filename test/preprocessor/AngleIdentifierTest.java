@@ -251,7 +251,7 @@ class AngleIdentifierTest
 		Segment da = new Segment(_points.getPoint("D"), _points.getPoint("A"));
 
 		//
-		// Non-minimal, computed segments: 2 in this figure.
+		// Non-minimal, computed segments: 5 in this figure.
 		//
 		Segment de = new Segment(_points.getPoint("D"), _points.getPoint("E"));
 		Segment fd = new Segment(_points.getPoint("F"), _points.getPoint("D"));
