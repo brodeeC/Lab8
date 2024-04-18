@@ -1,12 +1,8 @@
 /**
- * Write a succinct, meaningful description of the class here. You should avoid wordiness    
- * and redundancy. If necessary, additional paragraphs should be preceded by <p>,
- * the html tag for a new paragraph.
+ * Defines componenets of an angle and impleneted a equals method to determine if two angles share equality.
  *
- * <p>Bugs: (a list of bugs and / or other problems)
- *
- * @author <your name>
- * @date   <date of completion>
+ * @author  Brodee Clontz, Kyler Bailey, Collin Riddle
+ * @date   4/16/2024
  */
 
 package geometry_objects.angle;
@@ -180,16 +176,18 @@ public class Angle implements Comparable<Angle>
 		Angle newAngle = (Angle) obj;
 
 		return 
+		//If angles have same endpoints & vertex
 		_ray1Endpoint.equals(newAngle._ray1Endpoint) &&
 		_ray2Endpoint.equals(newAngle._ray2Endpoint) &&
 		_vertex.equals(newAngle._vertex) ||
 
+		//If angles have same vertex & overlaping rays
 		_vertex.equals(newAngle._vertex) &&
 		Segment.overlaysAsRay(_ray1, newAngle._ray1) &&
 		Segment.overlaysAsRay(_ray2, newAngle._ray2) ||
 
-		_vertex.equals(newAngle._vertex) &&
+		//Opposite of previous, in case an angle is "reversed"
 		Segment.overlaysAsRay(_ray1, newAngle._ray2) &&
-		Segment.overlaysAsRay(_ray2, newAngle._ray1);		
+		Segment.overlaysAsRay(_ray2, newAngle._ray1);
 	}
 }
