@@ -98,11 +98,31 @@ public class AngleStructureComparator implements Comparator<Angle>
 		if(OverlayR1.length() > OverlayR2.length()){ //I believe the solution lies somewhere with the Overlay segment variables I created.
 			return 1;
 		}
-      
-		if(GeometryUtilities.distance(ptR1,left_vert) < GeometryUtilities.distance(ptR1_2, left_vert)){
+
+		/**
+		 * This is the path that worked the best and fits the parameters as well. Will have to test to make sure it works.
+		 * But, this is my line of thinking.
+		 */
+		if(left.getRay1().length() >= right.getRay1().length() && 
+		   left.getRay2().length() >= right.getRay2().length()){
+			return 1;
+		}
+
+		if(left.getRay1().length() < right.getRay1().length() && 
+		   left.getRay2().length() < right.getRay2().length()){
 			return -1;
 		}
 
-		return 0; //Return 0 to handle an inclusive case.
+		if(left.getRay1().length() < right.getRay1().length() && 
+		   left.getRay2().length() < right.getRay2().length()){
+			return 0;
+		}
+
+		if(left.getRay1().length() < right.getRay1().length() && 
+		   left.getRay2().length() < right.getRay2().length()){
+			return 0;
+		}
+
+		return STRUCTURALLY_INCOMPARABLE; //Return STRUCTURALLY Incomparable as a fail safe.
 	}
 }
