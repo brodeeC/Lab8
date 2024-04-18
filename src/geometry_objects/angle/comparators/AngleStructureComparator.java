@@ -113,13 +113,13 @@ public class AngleStructureComparator implements Comparator<Angle>
 			return -1;
 		}
 
-		if(left.getRay1().length() < right.getRay1().length() && 
+		if(left.getRay1().length() > right.getRay1().length() && 
 		   left.getRay2().length() < right.getRay2().length()){
 			return 0;
 		}
 
 		if(left.getRay1().length() < right.getRay1().length() && 
-		   left.getRay2().length() < right.getRay2().length()){
+		   left.getRay2().length() > right.getRay2().length()){
 			return 0;
 		}
 
