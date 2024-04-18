@@ -63,16 +63,6 @@ public class AngleStructureComparator implements Comparator<Angle>
 		Point left_vert = left.getVertex();
 		Point right_vert = right.getVertex();
 
-		//If the angles does not share the same vertex then it is struturally incomparable.
-		if (!left_vert.equals(right_vert)) {
-			return STRUCTURALLY_INCOMPARABLE;
-		}
-
-		//If the left does not overlay with the right then it is structurally incomparable.
-		if(!left.overlays(right)){
-			return STRUCTURALLY_INCOMPARABLE;
-		}
-
 		//Gets the overlaying segments from the left ray 1 and left ray 2.
 		Segment OverlayR1 = right.overlayingRay(left.getRay1());
 		Segment OverlayR2 = right.overlayingRay(left.getRay2());
@@ -83,9 +73,20 @@ public class AngleStructureComparator implements Comparator<Angle>
 		Point ptR1_2 = OverlayR1.getPoint2();
 		Point ptR2_2 = OverlayR2.getPoint2();
 
-		if(OverlayR1 == null || OverlayR2 == null){
+		//If the angles does not share the same vertex then it is struturally incomparable.
+		if (!left_vert.equals(right_vert)) {
 			return STRUCTURALLY_INCOMPARABLE;
 		}
+
+		//If the left does not overlay with the right then it is structurally incomparable.
+		if(!left.overlays(right)){
+			return STRUCTURALLY_INCOMPARABLE;
+		}
+
+
+		// if(OverlayR1 == null || OverlayR2 == null){
+		// 	return STRUCTURALLY_INCOMPARABLE;
+		// }
 
 		
 		//If I can grab the length of each segement from the angle and compare them to eachother then might be able to figure something out.
@@ -95,29 +96,36 @@ public class AngleStructureComparator implements Comparator<Angle>
 			return STRUCTURALLY_INCOMPARABLE;
 		}  
 		
-		if(OverlayR1.length() > OverlayR2.length()){ //I believe the solution lies somewhere with the Overlay segment variables I created.
-			return 1;
-		}
+		// if(OverlayR1.length() > OverlayR2.length()){ //I believe the solution lies somewhere with the Overlay segment variables I created.
+		// 	return 1;
+		// }
 
 		/**
 		 * This is the path that worked the best and fits the parameters as well. Will have to test to make sure it works.
 		 * But, this is my line of thinking.
 		 */
+		
+		 //When both of the left angles segments are greater or equal the right angles segments return 1.
 		if(left.getRay1().length() >= right.getRay1().length() && 
 		   left.getRay2().length() >= right.getRay2().length()){
 			return 1;
 		}
 
+		//When both of the left angles segments are less than the right angles segments return -1.
 		if(left.getRay1().length() < right.getRay1().length() && 
 		   left.getRay2().length() < right.getRay2().length()){
 			return -1;
 		}
 
+		//When the structure is comparable but one of the left angles is greater than one right segments
+		//and the one of the right segments is greater than one of the left segments return 0 since it is inclusive.
 		if(left.getRay1().length() > right.getRay1().length() && 
 		   left.getRay2().length() < right.getRay2().length()){
 			return 0;
 		}
 
+		//When the structure is comparable but one of the left angles is greater than one right segments
+		//and the one of the right segments is greater than one of the left segments return 0 since it is inclusive.
 		if(left.getRay1().length() < right.getRay1().length() && 
 		   left.getRay2().length() > right.getRay2().length()){
 			return 0;
