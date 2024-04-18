@@ -84,9 +84,9 @@ public class AngleStructureComparator implements Comparator<Angle>
 		}
 
 
-		// if(OverlayR1 == null || OverlayR2 == null){
-		// 	return STRUCTURALLY_INCOMPARABLE;
-		// }
+		if(OverlayR1 == null || OverlayR2 == null){
+			return STRUCTURALLY_INCOMPARABLE;
+		}
 
 		
 		//If I can grab the length of each segement from the angle and compare them to eachother then might be able to figure something out.
