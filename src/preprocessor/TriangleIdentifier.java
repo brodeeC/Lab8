@@ -54,6 +54,7 @@ public class TriangleIdentifier
 					Segment segment3 = list.get(seg3);
 
 					Triangle triangle;
+					
 					list2.addAll(Arrays.asList(segment1, segment2, segment3));
 
 					try {
