@@ -30,7 +30,7 @@ public class AngleStructureComparatorTest {
         Point E = new Point (1, 1);
         Point F = new Point (3, 3);
 
-        // Creating angles
+        // Creating angles, use segments instead.
         Angle angleBAE = new Angle(A, B, E);
         Angle angleCAE = new Angle(A, C, E);
         Angle angleDAF = new Angle(D, A, F);
