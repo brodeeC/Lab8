@@ -41,7 +41,6 @@ public class TriangleIdentifier
 	{
 
 		ArrayList<Segment> list = new ArrayList<Segment>(_segments.keySet());
-		List<Segment> list2 = new ArrayList<Segment>();
 
 		for(int seg1 = 0; seg1 < list.size(); seg1++) {
 			
@@ -55,11 +54,9 @@ public class TriangleIdentifier
 
 					Triangle triangle;
 					
-					list2.addAll(Arrays.asList(segment1, segment2, segment3));
-
 					try {
 
-						triangle = new Triangle(list2);
+						triangle = new Triangle(Arrays.asList(segment1, segment2, segment3));
 
 					}
 
@@ -68,7 +65,6 @@ public class TriangleIdentifier
 					}
 
 					if (triangle != null) _triangles.add(triangle);	 
-					list2.clear(); 	
 				}
 			}
 		}

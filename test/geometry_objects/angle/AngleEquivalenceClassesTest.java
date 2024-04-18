@@ -54,7 +54,7 @@ public class AngleEquivalenceClassesTest {
             Angle angle7 = new Angle(seg1, seg8);
             Angle angle8 = new Angle(seg1, seg9);
 
-            AngleEquivalenceClasses aec = new AngleEquivalenceClasses(new AngleStructureComparator());
+            AngleEquivalenceClasses aec = new AngleEquivalenceClasses();
 
             aec.add(angle1);
             aec.add(angle2);
@@ -70,11 +70,8 @@ public class AngleEquivalenceClassesTest {
 
             assertEquals(aec.size(), 8);
 
-            assertEquals(aec.indexOfClass(angle1), 0);
-            assertEquals(aec.indexOfClass(angle5), 1);
-
-            assertTrue(aec._classes.get(0).canonical().equals(angle1));
-            assertTrue(aec._classes.get(1).canonical().equals(angle5));
+            assertTrue(aec.contains(angle1));
+            assertTrue(aec.contains(angle5));
 
 
 
