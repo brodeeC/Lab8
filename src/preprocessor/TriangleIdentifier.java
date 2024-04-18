@@ -40,25 +40,34 @@ public class TriangleIdentifier
 	private void computeTriangles()
 	{
 
-		List<Segment> list = new ArrayList<Segment>(_segments.keySet());
+		ArrayList<Segment> list = new ArrayList<Segment>(_segments.keySet());
 		List<Segment> list2 = new ArrayList<Segment>();
 
 		for(int seg1 = 0; seg1 < list.size(); seg1++) {
-			list2.add(list.get(seg1));
+			
+			Segment segment1 = list.get(seg1);
 	
 			for(int seg2 = seg1 + 1; seg2 < list.size(); seg2++) {
-				list2.add(list.get(seg2));
+				Segment segment2 = list.get(seg2);
 
-				for (int seg3 = seg1 + 2; seg3 < list.size(); seg3++) {
-					list2.add(list.get(seg3));
-	
+				for (int seg3 = seg2 + 1; seg3 < list.size(); seg3++) {
+					Segment segment3 = list.get(seg3);
+
+					Triangle triangle;
+					list2.addAll(Arrays.asList(segment1, segment2, segment3));
+
 					try {
 
-						Triangle triangle = new Triangle(list2);
+						triangle = new Triangle(list2);
 
-						_triangles.add(triangle);
+					}
 
-					}  catch (FactException e) { }		
+					catch (FactException e) {
+						triangle = null;
+					}
+
+					if (triangle != null) _triangles.add(triangle);	 
+					list2.clear(); 	
 				}
 			}
 		}
