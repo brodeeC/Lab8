@@ -90,10 +90,9 @@ public class AngleStructureComparator implements Comparator<Angle>
 
 		
 		//If I can grab the length of each segement from the angle and compare them to eachother then might be able to figure something out.
-		if(!GeometryUtilities.between(ptR1,left_vert,ptR1_2) || 
-	       !GeometryUtilities.between(ptR2, right_vert, ptR2_2)){
+		if(GeometryUtilities.between(ptR1,left_vert,ptR1_2) == GeometryUtilities.between(ptR2, right_vert, ptR2_2)){
 			
-			return STRUCTURALLY_INCOMPARABLE;
+			return 1;
 		}  
 		
 		// if(OverlayR1.length() > OverlayR2.length()){ //I believe the solution lies somewhere with the Overlay segment variables I created.
