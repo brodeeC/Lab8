@@ -79,6 +79,7 @@ public class AngleStructureComparator implements Comparator<Angle>
 		}
 
 
+		//If either of the Overlays are null just return Structurally incomparable because they are incomparable. 
 		if(OverlayR1 == null || OverlayR2 == null){
 			return STRUCTURALLY_INCOMPARABLE;
 		}
@@ -93,12 +94,8 @@ public class AngleStructureComparator implements Comparator<Angle>
 			return 1;
 		}  
 		
-		/**
-		 * This is the path that worked the best and fits the parameters as well. Will have to test to make sure it works.
-		 * But, this is my line of thinking.
-		 */
 		
-		 //When both of the left angles segments are greater or equal the right angles segments return 1.
+		//When both of the left angles segments are greater or equal the right angles segments return 1.
 		if(left.getRay1().length() >= right.getRay1().length() && 
 		   left.getRay2().length() >= right.getRay2().length()){
 			return 1;
