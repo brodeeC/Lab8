@@ -39,9 +39,7 @@ public class AngleIdentifier
 	}
 
 	/**
-	 * May need some sort of Math.Utilies to calculate the angle.
-	 * Will definitely have to utilize the segment map. Maybe iterate through the list of segments calculating
-	 * the angle and appending the calculated angle to the angle equivalnce class.
+	 * Computes angles from a given map of segments. Loops through all the segments and creates an angle.
 	 */
 	private void computeAngles() 
 	{
@@ -67,7 +65,7 @@ public class AngleIdentifier
 					angle = null;
 				}
 
-				//Add angle too the Angle Equivalence Class if it was created
+				//Add angle to the Angle Equivalence Class if it was created
 				if (angle != null) _angles.add(angle);
 
 			}
