@@ -124,4 +124,18 @@ class TriangleIdentifierTest
 			assertTrue(expectedTriangles.contains(computedTriangle));
 		}
 	}
+
+	@Test
+	void test_single_triangle() {
+
+		init("single_triangle.json");
+
+		TriangleIdentifier triIdentifier = new TriangleIdentifier(_segments);
+
+		Set<Triangle> computedTriangles = triIdentifier.getTriangles();
+
+		System.out.println(computedTriangles);
+
+		assertEquals(1, computedTriangles.size());
+	}
 }
