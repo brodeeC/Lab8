@@ -81,6 +81,9 @@ public class AngleStructureComparatorTest {
 
             //Right angle is greater than the left angle.
             assertEquals(-1, comparator.compare(angleCRI, angleTRI));
+
+            //Inconclusive result where one ray of the left may be greater than one ray of the right and vice-versa.
+            assertEquals(0,comparator.compare(angleTRI, angleCRI));
             
             //Structurally Incomparable 
             assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleBAE, angleDAF));
