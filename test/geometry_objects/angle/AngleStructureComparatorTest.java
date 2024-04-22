@@ -47,6 +47,7 @@ public class AngleStructureComparatorTest {
         Point point7 = new Point(7.0, 7.0);
         Point point8 = new Point(9.0, 9.0);
         Point point9 = new Point(10.0, 10.0);
+        Point point10 = new Point(2.0,5.0);
 
         //Creation of the segments.
         Segment seg1 = new Segment(point1, point2);
@@ -58,6 +59,8 @@ public class AngleStructureComparatorTest {
         Segment seg7 = new Segment(point2, point7);
         Segment seg8 = new Segment(point2, point8);
         Segment seg9 = new Segment(point2, point9);
+        Segment seg0 = new Segment(point10,point3);
+        Segment seg11 = new Segment(point1,point3);
 
         
         // Creating angles, use of segments instead.
@@ -68,8 +71,8 @@ public class AngleStructureComparatorTest {
             Angle angleCAF = new Angle(seg1,seg8);
             Angle angleABC = new Angle(seg1,seg9);
             Angle angleCBA = new Angle(seg9,seg1);
-            Angle angleTRI = new Angle(seg1, seg6);
-            Angle angleCRI = new Angle(seg1, seg5);
+            Angle angleTRI = new Angle(seg1, seg11);
+            Angle angleCRI = new Angle(seg0,seg5);
 
             // Asserting comparisons
             //Left angle is greater than the right angle.
@@ -77,7 +80,7 @@ public class AngleStructureComparatorTest {
             assertEquals(1,comparator.compare(angleABC, angleCBA));
 
             //Right angle is greater than the left angle.
-            assertEquals(-1, comparator.compare(angleTRI, angleCRI));
+            assertEquals(-1, comparator.compare(angleCRI, angleTRI));
             
             //Structurally Incomparable 
             assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleBAE, angleDAF));
