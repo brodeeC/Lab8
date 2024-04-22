@@ -66,11 +66,22 @@ public class AngleStructureComparatorTest {
             Angle angleCAE = new Angle(seg1,seg6);
             Angle angleDAF = new Angle(seg1,seg7);
             Angle angleCAF = new Angle(seg1,seg8);
+            Angle angleABC = new Angle(seg1,seg9);
+            Angle angleCBA = new Angle(seg9,seg1);
+            Angle angleTRI = new Angle(seg1, seg6);
+            Angle angleCRI = new Angle(seg1, seg5);
 
             // Asserting comparisons
-            assertEquals(-1, comparator.compare(angleBAE, angleCAE));
-            assertEquals(-1, comparator.compare(angleBAE, angleDAF));
-            assertEquals(1, comparator.compare(angleCAE, angleDAF));
+            //Left angle is greater than the right angle.
+            assertEquals(1, comparator.compare(angleBAE, angleCAE));
+            assertEquals(1,comparator.compare(angleABC, angleCBA));
+
+            //Right angle is greater than the left angle.
+            assertEquals(-1, comparator.compare(angleTRI, angleCRI));
+            
+            //Structurally Incomparable 
+            assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleBAE, angleDAF));
+            assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleCAE, angleDAF));
             assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleCAE, angleCAF));
 
         } catch(FactException e){

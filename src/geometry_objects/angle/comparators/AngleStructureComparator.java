@@ -90,12 +90,10 @@ public class AngleStructureComparator implements Comparator<Angle>
 		Point ptR1_2 = OverlayR1.getPoint2();
 		Point ptR2_2 = OverlayR2.getPoint2();
 
-		/**
-		 * At into this line of code, so you can properly comment this line.
-		 */
-		if(GeometryUtilities.between(ptR1,left_vert,ptR1_2) == GeometryUtilities.between(ptR2, right_vert, ptR2_2)){
-			return 1;
-		}  
+		
+		// if(GeometryUtilities.between(ptR1,left_vert,ptR1_2) == GeometryUtilities.between(ptR2, right_vert, ptR2_2)){
+		// 	return 1;
+		// }  
 		
 		
 		//When both of the left angles segments are greater or equal the right angles segments return 1.
