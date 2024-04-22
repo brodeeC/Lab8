@@ -40,7 +40,7 @@ public class AngleLinkedEquivalenceClass extends LinkedEquivalenceClass<Angle>
     public boolean belongs(Angle angle){
 
         //If the comparator returns the Max Int value then the two angles are structurally incomparable.
-        if(angle != null && super._comparator.compare(_canonical, angle) != Integer.MAX_VALUE) return true;
+        if(angle != null && super._comparator.compare(_canonical, angle) != AngleStructureComparator.STRUCTURALLY_INCOMPARABLE) return true;
 		
 		return false;
     }

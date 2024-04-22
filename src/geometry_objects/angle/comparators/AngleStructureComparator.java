@@ -84,18 +84,6 @@ public class AngleStructureComparator implements Comparator<Angle>
 			return STRUCTURALLY_INCOMPARABLE;
 		}
 
-		Point ptR1 = OverlayR1.getPoint1();
-		Point ptR2 = OverlayR2.getPoint1();
-
-		Point ptR1_2 = OverlayR1.getPoint2();
-		Point ptR2_2 = OverlayR2.getPoint2();
-
-		
-		// if(GeometryUtilities.between(ptR1,left_vert,ptR1_2) == GeometryUtilities.between(ptR2, right_vert, ptR2_2)){
-		// 	return 1;
-		// }  
-		
-		
 		//When both of the left angles segments are greater or equal the right angles segments return 1.
 		if(left.getRay1().length() >= right.getRay1().length() && 
 		   left.getRay2().length() >= right.getRay2().length()){
