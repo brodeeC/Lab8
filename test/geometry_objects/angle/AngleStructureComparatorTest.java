@@ -33,6 +33,7 @@ public class AngleStructureComparatorTest {
      */
     @Test
     public void testCompare() {
+        setUp();
 
         //Creation of points.
         Point point0 = new Point(0.0, 5.0);
@@ -66,11 +67,11 @@ public class AngleStructureComparatorTest {
             Angle angleDAF = new Angle(seg1,seg7);
             Angle angleCAF = new Angle(seg1,seg8);
 
-        // Asserting comparisons
-        assertEquals(-1, comparator.compare(angleBAE, angleCAE));
-        assertEquals(-1, comparator.compare(angleBAE, angleDAF));
-        assertEquals(1, comparator.compare(angleCAE, angleDAF));
-        assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleCAE, angleCAF));
+            // Asserting comparisons
+            assertEquals(-1, comparator.compare(angleBAE, angleCAE));
+            assertEquals(-1, comparator.compare(angleBAE, angleDAF));
+            assertEquals(1, comparator.compare(angleCAE, angleDAF));
+            assertEquals(AngleStructureComparator.STRUCTURALLY_INCOMPARABLE, comparator.compare(angleCAE, angleCAF));
 
         } catch(FactException e){
             e.printStackTrace();
