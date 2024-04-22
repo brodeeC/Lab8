@@ -137,5 +137,24 @@ class TriangleIdentifierTest
 		System.out.println(computedTriangles);
 
 		assertEquals(1, computedTriangles.size());
+
+		Segment ab = new Segment(_points.getPoint("A"), _points.getPoint("B"));
+		Segment ac = new Segment(_points.getPoint("A"), _points.getPoint("C"));
+		Segment bc = new Segment(_points.getPoint("B"), _points.getPoint("C"));
+
+		List<Triangle> expectedTriangles = new ArrayList<Triangle>();
+		try {
+			
+		expectedTriangles.add(new Triangle(Arrays.asList(ab, bc, ac)));
+
+		} catch (FactException te) { System.err.println("Invalid triangles in triangle test."); }
+
+		assertEquals(expectedTriangles.size(), computedTriangles.size());
+		
+		for (Triangle computedTriangle : computedTriangles)
+		{
+			assertTrue(expectedTriangles.contains(computedTriangle));
+		}
+
 	}
 }
