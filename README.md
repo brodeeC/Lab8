@@ -1,0 +1,1 @@
+This repository houses code that takes a JSON file, interprets it, and identifies if there are any triangles present within the file. If there are triangles present, it will determine how many there are.
